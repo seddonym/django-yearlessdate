@@ -1,8 +1,8 @@
 from django.db import models
-from helpers import DateInYear
+from helpers import YearlessDate
 import forms
 
-class DateInYearField(models.Field):
+class YearlessDateField(models.Field):
     "A model field for storing dates without years"
     description = "A date without a year, for use in things like birthdays"
 
@@ -10,15 +10,15 @@ class DateInYearField(models.Field):
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 4
-        super(DateInYearField, self).__init__(*args, **kwargs)
+        super(YearlessDateField, self).__init__(*args, **kwargs)
 
     def to_python(self, value):
-        if isinstance(value, DateInYear):
+        if isinstance(value, YearlessDate):
             return value
         if not value:
             return None
         # The string case.
-        return DateInYear(value[2:], value[:2])
+        return YearlessDate(value[2:], value[:2])
     
     def get_prep_value(self, value):
         "The reverse of to_python, for inserting into the database"
@@ -36,9 +36,9 @@ class DateInYearField(models.Field):
     def formfield(self, **kwargs):
         # This is a fairly standard way to set up some defaults
         # while letting the caller override them.
-        defaults = {'form_class': forms.DateInYearField}
+        defaults = {'form_class': forms.YearlessDateField}
         defaults.update(kwargs)
-        return super(DateInYearField, self).formfield(**defaults)
+        return super(YearlessDateField, self).formfield(**defaults)
     
 class YearField(models.IntegerField):
     "A model field for storing years, e.g. 2012"

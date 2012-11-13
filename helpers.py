@@ -1,6 +1,6 @@
 import calendar
 
-class DateInYear(object):
+class YearlessDate(object):
     "An object representing a date in a year (but not a year itself).  Suitable especially for birthdays, anniversaries etc."
     def __init__(self, day, month):
         self.day = int(day)
@@ -27,7 +27,7 @@ class DateInYear(object):
         return "%d %s" % (self.day, self.month_name)
     
     def __eq__(self, other):
-        if not isinstance(other,DateInYear): return False
+        if not isinstance(other,YearlessDate): return False
         return (self.day == other.day) and (self.month == other.month)
     
     def __gt__(self, other):
