@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: django-yearlessdate
+Version: 0.1
+Summary: Django field for storing dates without years
+Home-page: http://github.com/seddonym/django-yearlessdate/
+Author: David Seddon
+Author-email: david@pepperpotdesign.co.uk
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
