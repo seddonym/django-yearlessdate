@@ -1,10 +1,9 @@
-import ez_setup
-ez_setup.use_setuptools()
-from setuptools import setup, find_packages
+from distutils.core import setup
+
 setup(
     name = "django-yearlessdate",
-    version = "0.1",
-    packages = find_packages(),
+    version = "0.1-beta",
+    packages = ['djangoyearlessdate'],
     author = "David Seddon",
     author_email = "david@pepperpotdesign.co.uk",
     description = "Django field for storing dates without years",
