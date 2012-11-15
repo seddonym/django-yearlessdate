@@ -26,7 +26,7 @@ Here's an example models.py that declares a model with a required yearless date
 and an optional year::  
 
     from django.db import models
-    from djangoyearless.models import YearlessDateField, YearField
+    from djangoyearlessdate.models import YearlessDateField, YearField
   
     class MyModel(models.Model):
         birthday = YearlessDateField()
