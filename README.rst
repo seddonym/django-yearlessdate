@@ -25,12 +25,12 @@ The YearField is a very simple field that just ensures the year provided lies be
 Here's an example models.py that declares a model with a required yearless date
 and an optional year.  
 
-  from django.db import models
-  from djangoyearless.models import YearlessDateField, YearField
+    from django.db import models
+    from djangoyearless.models import YearlessDateField, YearField
   
-  class MyModel(models.Model):
-      birthday = YearlessDateField()
-      year = YearField(null=True, blank=True)
+    class MyModel(models.Model):
+        birthday = YearlessDateField()
+        year = YearField(null=True, blank=True)
 
 The values of YearlessDateField on the model instances can be accessed like so:
 
