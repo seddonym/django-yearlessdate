@@ -8,9 +8,9 @@ One use case is to collect birthdays without requiring the year of birth.
 Installation
 --------------------
 
-Check out from this repository, or alternatively:
+Check out from this repository, or alternatively::
 
-  easy_install django-yearlessdate
+    easy_install django-yearlessdate
 
 Usage
 --------------------
