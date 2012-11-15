@@ -23,7 +23,7 @@ The YearField is a very simple field that just ensures the year provided lies be
 1900 and 2200.  (This range will become user configurable at some point.) 
 
 Here's an example models.py that declares a model with a required yearless date
-and an optional year.  
+and an optional year::  
 
     from django.db import models
     from djangoyearless.models import YearlessDateField, YearField
