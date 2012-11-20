@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name = "django-yearlessdate",
-    version = "0.1-beta",
+    version = "0.2-beta",
     packages = ['djangoyearlessdate'],
     author = "David Seddon",
     author_email = "david@pepperpotdesign.co.uk",
