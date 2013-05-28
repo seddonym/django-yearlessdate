@@ -46,3 +46,13 @@ class YearField(models.IntegerField):
         defaults = {'form_class': forms.YearField}
         defaults.update(kwargs)
         return super(YearField, self).formfield(**defaults)
+    
+#South integration
+try:
+    from south.modelsinspector import add_introspection_rules
+except ImportError:
+    #South is not installed
+    pass
+else:
+    add_introspection_rules([], ["^djangoyearlessdate\.models\.YearlessDateField"])
+    add_introspection_rules([], ["^djangoyearlessdate\.models\.YearField"])
