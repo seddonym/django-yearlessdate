@@ -6,8 +6,6 @@ class YearlessDateField(models.Field):
     "A model field for storing dates without years"
     description = "A date without a year, for use in things like birthdays"
 
-    __metaclass__ = models.SubfieldBase
-
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 4
         super(YearlessDateField, self).__init__(*args, **kwargs)
@@ -19,6 +17,13 @@ class YearlessDateField(models.Field):
             return None
         # The string case.
         return YearlessDate(value[2:], value[:2])
+
+    def from_db_value(self, value, expression, connection, context):
+        if not value:
+            return None
+        # The string case.
+        return YearlessDate(value[2:], value[:2])
+
     
     def get_prep_value(self, value):
         "The reverse of to_python, for inserting into the database"
