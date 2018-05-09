@@ -5,12 +5,18 @@ Provides a Django model and form fields for dates that do not require years.
 
 One use case is to collect birthdays without requiring the year of birth.  
 
+Prerequisites
+--------------------
+
+- Django 1.8
+- Python 2.7
+
+(Other versions may be supported, but are untested.)
+
 Installation
 --------------------
 
-Check out from this repository, or alternatively::
-
-    easy_install django-yearlessdate
+    pip install django-yearlessdate
 
 Usage
 --------------------
@@ -53,3 +59,17 @@ They can also be compared or sorted as would be expected, for example:
 True
 >>> m.order_by('birthday')
 [<MyModel: 30 June 2013>, <MyModel: 4 August 2011>]
+
+Tests
+---------------------------
+
+Setup:
+
+1. Ensure you have a recent version of tox installed.
+2. Clone this repo.
+
+Running tests:
+
+From the root of this repo, run:
+
+    tox
