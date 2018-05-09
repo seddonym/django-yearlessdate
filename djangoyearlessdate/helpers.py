@@ -1,5 +1,6 @@
 import calendar
 
+
 class YearlessDate(object):
     "An object representing a date in a year (but not a year itself).  Suitable especially for birthdays, anniversaries etc."
     def __init__(self, day, month):
@@ -9,7 +10,7 @@ class YearlessDate(object):
         
     def _validate(self):
         "Checks that the values of day and month are valid"
-        #Get valid max month days for the month (we use 2008 since it's a leap year)
+        # Get valid max month days for the month (we use 2008 since it's a leap year)
         try:
             week, month_days = calendar.monthrange(2008, self.month)
         except calendar.IllegalMonthError:
@@ -27,11 +28,13 @@ class YearlessDate(object):
         return "%d %s" % (self.day, self.month_name)
     
     def __eq__(self, other):
-        if not isinstance(other,YearlessDate): return False
+        if not isinstance(other, YearlessDate):
+            return False
         return (self.day == other.day) and (self.month == other.month)
     
     def __gt__(self, other):
-        if self.month != other.month: return self.month > other.month
+        if self.month != other.month:
+            return self.month > other.month
         return self.day > other.day
     
     def __ne__(self, other):

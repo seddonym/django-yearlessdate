@@ -2,8 +2,10 @@ from django.db import models
 from helpers import YearlessDate
 import forms
 
+
 class YearlessDateField(models.Field):
-    "A model field for storing dates without years"
+    """A model field for storing dates without years.
+    """
     description = "A date without a year, for use in things like birthdays"
 
     __metaclass__ = models.SubfieldBase
@@ -31,7 +33,7 @@ class YearlessDateField(models.Field):
     def value_to_string(self, obj):
         "For serialization"
         value = self._get_val_from_obj(obj)
-        return self.get_db_prep_value(value)
+        return self.get_prep_value(value)
     
     def formfield(self, **kwargs):
         # This is a fairly standard way to set up some defaults
@@ -39,20 +41,12 @@ class YearlessDateField(models.Field):
         defaults = {'form_class': forms.YearlessDateField}
         defaults.update(kwargs)
         return super(YearlessDateField, self).formfield(**defaults)
-    
+
+
 class YearField(models.IntegerField):
-    "A model field for storing years, e.g. 2012"
+    """A model field for storing years, e.g. 2012.
+    """
     def formfield(self, **kwargs):
         defaults = {'form_class': forms.YearField}
         defaults.update(kwargs)
         return super(YearField, self).formfield(**defaults)
-    
-#South integration
-try:
-    from south.modelsinspector import add_introspection_rules
-except ImportError:
-    #South is not installed
-    pass
-else:
-    add_introspection_rules([], ["^djangoyearlessdate\.models\.YearlessDateField"])
-    add_introspection_rules([], ["^djangoyearlessdate\.models\.YearField"])
