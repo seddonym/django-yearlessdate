@@ -1,3 +1,4 @@
+import django
 from django.db import models
 from helpers import YearlessDate
 import forms
@@ -8,7 +9,8 @@ class YearlessDateField(models.Field):
     """
     description = "A date without a year, for use in things like birthdays"
 
-    __metaclass__ = models.SubfieldBase
+    if django.VERSION < (1, 8):
+        __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 4
@@ -21,12 +23,15 @@ class YearlessDateField(models.Field):
             return None
         # The string case.
         return YearlessDate(value[2:], value[:2])
-    
+
+    def from_db_value(self, value, expression, connection, context):
+        return self.to_python(value)
+
     def get_prep_value(self, value):
         "The reverse of to_python, for inserting into the database"
         if value is not None:
             return ''.join(["%02d" % i for i in (value.month, value.day)])
-    
+
     def get_internal_type(self):
         return 'CharField'
     

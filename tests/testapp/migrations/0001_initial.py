@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('yearless_date', djangoyearlessdate.models.YearlessDateField(max_length=4)),
+                ('optional_yearless_date', djangoyearlessdate.models.YearlessDateField(max_length=4, null=True, blank=True)),
             ],
             options={
             },

@@ -6,6 +6,7 @@ class YearlessDateModel(models.Model):
     """Sample model for testing YearlessDateField.
     """
     yearless_date = YearlessDateField()
+    optional_yearless_date = YearlessDateField(blank=True, null=True)
 
 
 class YearModel(models.Model):

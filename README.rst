@@ -3,12 +3,12 @@ django-yearlessdate
 
 Provides a Django model and form fields for dates that do not require years.
 
-One use case is to collect birthdays without requiring the year of birth.  
+One use case is to collect birthdays without requiring the year of birth.
 
 Prerequisites
 --------------------
 
-- Django 1.8
+- Django 1.8 - 1.11
 - Python 2.7
 
 (Other versions may be supported, but are untested.)
@@ -73,3 +73,4 @@ Running tests:
 From the root of this repo, run:
 
     tox
+
