@@ -10,14 +10,14 @@ pytestmark = pytest.mark.django_db
 class TestYearlessDateField:
     def test_storage_and_retrieval(self):
         yearless_date = YearlessDate(3, 7)
-        model = YearlessDateModel(yearless_date=yearless_date)
-        model.save()
+        model = YearlessDateModel.objects.create(yearless_date=yearless_date)
         retrieved_model = YearlessDateModel.objects.get(id=model.id)
         assert retrieved_model.yearless_date == yearless_date
 
     def test_empty_values(self):
-        model = YearlessDateModel()
-        assert model.yearless_date == None
+        model = YearlessDateModel.objects.create(yearless_date=YearlessDate(1, 1))
+        retrieved_model = YearlessDateModel.objects.get(id=model.id)
+        assert retrieved_model.optional_yearless_date == None
 
     def test_value_to_string(self):
         yearless_date = YearlessDate(3, 7)
