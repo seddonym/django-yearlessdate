@@ -8,7 +8,7 @@ One use case is to collect birthdays without requiring the year of birth.
 Prerequisites
 --------------------
 
-- Django 1.8 - 1.10
+- Django 1.8 - 1.11
 - Python 2.7
 
 (Other versions may be supported, but are untested.)
