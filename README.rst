@@ -5,6 +5,8 @@ Provides a Django model and form fields for dates that do not require years.
 
 One use case is to collect birthdays without requiring the year of birth.
 
+|build-status| |coverage| |wheel|
+
 Prerequisites
 --------------------
 
@@ -73,4 +75,15 @@ Running tests:
 From the root of this repo, run:
 
     tox
+
+.. |build-status| image:: https://img.shields.io/circleci/project/github/seddonym/django-yearlessdate.svg
+    :alt: Build status
+    :target: https://circleci.com/gh/seddonym/django-yearlessdate
+
+.. |coverage| image:: https://codecov.io/github/seddonym/django-yearlessdate/coverage.svg
+    :target: https://codecov.io/github/seddonym/django-yearlessdate/
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/django-yearlessdate.svg
+    :alt: django-yearlessdate can be installed via wheel
+    :target: http://pypi.python.org/pypi/django-yearlessdate/
 
