@@ -5,7 +5,7 @@ long_description = codecs.open('README.rst', 'r', 'utf-8').read()
 
 setup(
     name="django-yearlessdate",
-    version="0.4-beta",
+    version="1.0",
     packages=['djangoyearlessdate'],
     author="David Seddon",
     author_email="david@seddonym.me",
