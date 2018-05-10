@@ -6,7 +6,7 @@ long_description = codecs.open('README.rst', 'r', 'utf-8').read()
 classifiers = [
     'Development Status :: 5 - Production/Stable',
     'License :: OSI Approved :: BSD License',
-    'Programming Language :: Python'
+    'Programming Language :: Python',
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.7',
     'Framework :: Django',
@@ -19,7 +19,7 @@ classifiers = [
 
 setup(
     name="django-yearlessdate",
-    version="1.0",
+    version="1.0.1",
     packages=['djangoyearlessdate'],
     author="David Seddon",
     author_email="david@seddonym.me",
