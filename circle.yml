@@ -7,7 +7,6 @@ jobs:
       steps:
         - checkout
         - run: pip install tox && tox
-        - run: pip install codecov && codecov
 
 workflows:
   version: 2

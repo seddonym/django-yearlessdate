@@ -11,10 +11,10 @@ One use case is to collect birthdays without requiring the year of birth.
 Prerequisites
 =============
 
-- Django 1.8 - 1.11
-- Python 2.7
+- Django 1.8 - 1.11, 2.0
+- Python 2.7, 3.6
 
-(Other versions may be supported, but are untested.)
+(Other versions may function, but are untested.)
 
 Installation
 ============

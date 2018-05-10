@@ -1,7 +1,7 @@
 import django
 from django.db import models
-from helpers import YearlessDate
-import forms
+from .helpers import YearlessDate
+from . import forms
 
 
 class YearlessDateField(models.Field):
@@ -37,7 +37,7 @@ class YearlessDateField(models.Field):
     
     def value_to_string(self, obj):
         "For serialization"
-        value = self._get_val_from_obj(obj)
+        value = self.value_from_object(obj)
         return self.get_prep_value(value)
     
     def formfield(self, **kwargs):
