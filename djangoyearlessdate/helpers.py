@@ -1,6 +1,8 @@
 import calendar
+from django.utils.deconstruct import deconstructible
 
 
+@deconstructible
 class YearlessDate(object):
     "An object representing a date in a year (but not a year itself).  Suitable especially for birthdays, anniversaries etc."
     def __init__(self, day, month):
