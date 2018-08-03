@@ -102,7 +102,7 @@ From the root of this repo, simply run:
 
     tox
 
-.. |build-status| image:: https://img.shields.io/circleci/project/github/seddonym/django-yearlessdate.svg
+.. |build-status| image:: https://img.shields.io/circleci/project/github/seddonym/django-yearlessdate/master.svg
     :alt: Build status
     :target: https://circleci.com/gh/seddonym/django-yearlessdate
 
