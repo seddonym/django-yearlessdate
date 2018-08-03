@@ -21,7 +21,7 @@ classifiers = [
 
 setup(
     name="django-yearlessdate",
-    version="1.1",
+    version="1.2",
     packages=['djangoyearlessdate'],
     author="David Seddon",
     author_email="david@seddonym.me",
