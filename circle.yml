@@ -3,10 +3,10 @@ version: 2
 jobs:
   toxify:
       docker:
-        - image: python:3.6
+        - image: themattrix/tox
       steps:
         - checkout
-        - run: pip install tox && tox
+        - run: tox
 
 workflows:
   version: 2
