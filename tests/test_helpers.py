@@ -1,5 +1,6 @@
 from unittest import TestCase
 from djangoyearlessdate.helpers import YearlessDate
+from django.utils.module_loading import import_string
 
 
 class TestYearlessDateDisplay(TestCase):
@@ -163,3 +164,21 @@ class TestYearlessDateLessThanOrEqual(TestCase):
         self.assertTrue(
             YearlessDate(30, 9) <= YearlessDate(30, 9)
         )
+
+
+class TestYearlessDateSerialization(TestCase):
+    """
+    This is needed to allow Django to make migrations, if a YearlessDate
+    is used as a default.
+    """
+    def test_deconstruct(self):
+        yearless_date = YearlessDate(30, 9)
+
+        serialized = yearless_date.deconstruct()
+
+        # Deserialize it.
+        cls = import_string(serialized[0])
+
+        deserialized = cls(*serialized[1], **serialized[2])
+
+        assert deserialized == yearless_date
