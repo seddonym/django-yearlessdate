@@ -24,8 +24,16 @@ class YearlessDateField(models.Field):
         # The string case.
         return YearlessDate(value[2:], value[:2])
 
-    def from_db_value(self, value, expression, connection, context):
-        return self.to_python(value)
+    # 'context' argument was deprecated in Django 2.0
+    # See: https://docs.djangoproject.com/en/2.0/releases/2.0/#features-deprecated-in-2-0
+    if django.VERSION < (2,):
+
+        # TODO: remove when Django<2 support is dropped.
+        def from_db_value(self, value, expression, connection, context):
+            return self.to_python(value)
+    else:
+        def from_db_value(self, value, expression, connection):
+            return self.to_python(value)
 
     def get_prep_value(self, value):
         "The reverse of to_python, for inserting into the database"
