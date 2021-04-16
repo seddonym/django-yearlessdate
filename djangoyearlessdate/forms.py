@@ -36,7 +36,14 @@ class YearlessDateField(forms.Field):
                 return YearlessDate(*value)
             except:
                 raise ValidationError('Invalid date.')
-        
+
+    def has_changed(self, initial, data):
+        if data == ['', '']:
+            data = None
+        else:
+            data = YearlessDate(*data)
+        return super(YearlessDateField, self).has_changed(initial, data)    
+
 
 class YearField(forms.Field):
     widget = TextInput
