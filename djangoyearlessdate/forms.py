@@ -42,7 +42,7 @@ class YearlessDateField(forms.Field):
             data = None
         else:
             data = YearlessDate(*data)
-        return super(YearlessDateField, self).has_changed(initial, data)    
+        return super(YearlessDateField, self).has_changed(initial, data)
 
 
 class YearField(forms.Field):
