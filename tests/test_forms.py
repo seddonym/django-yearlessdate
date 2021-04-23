@@ -39,7 +39,7 @@ class TestYearlessDateField:
 
     def test_yearless_date_form_has_changed_value_to_new_value(self):
         form = YearlessDateForm(initial={'yearless_date': YearlessDate(29, 10)},
-                                data={'yearless_date_0': '', 'yearless_date_1': ''})
+                                data={'yearless_date_0': '18', 'yearless_date_1': '3'})
         assert form.has_changed()
 
     def test_yearless_date_form_has_not_changed_empty_to_empty(self):
