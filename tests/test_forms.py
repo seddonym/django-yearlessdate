@@ -27,6 +27,29 @@ class TestYearlessDateField:
         assert not form.is_valid()
         assert form.errors['yearless_date'] == [u'This field is required.']
 
+    def test_yearless_date_form_has_not_changed(self):
+        form = YearlessDateForm(initial={'yearless_date': YearlessDate(1, 9)},
+                                data={'yearless_date_0': '1', 'yearless_date_1': '9'})
+        assert not form.has_changed()
+
+    def test_yearless_date_form_has_changed_value_to_empty(self):
+        form = YearlessDateForm(initial={'yearless_date': YearlessDate(1, 9)},
+                                data={'yearless_date_0': '', 'yearless_date_1': ''})
+        assert form.has_changed()
+
+    def test_yearless_date_form_has_changed_value_to_new_value(self):
+        form = YearlessDateForm(initial={'yearless_date': YearlessDate(29, 10)},
+                                data={'yearless_date_0': '18', 'yearless_date_1': '3'})
+        assert form.has_changed()
+
+    def test_yearless_date_form_has_not_changed_empty_to_empty(self):
+        form = YearlessDateForm(data={'yearless_date_0': '', 'yearless_date_1': ''})
+        assert not form.has_changed()
+
+    def test_yearless_date_form_has_changed_empty_to_new_value(self):
+        form = YearlessDateForm(data={'yearless_date_0': '1', 'yearless_date_1': '9'})
+        assert form.has_changed()
+
 
 class TestYearField:
     def test_1900_is_valid(self):
